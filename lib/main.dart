@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 void main() { // main스레드는 runApp 을 실행시키고 종료됩니다.
   runApp(FirstApp());
 print("main 쓰레드 종료");
-sleep(Duration(seconds: 3));
+// sleep(Duration(seconds: 3));
 }
 
 class FirstApp extends StatelessWidget {
@@ -21,55 +21,23 @@ class FirstApp extends StatelessWidget {
 
            ),
           body: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
+              Container(
+                color: Colors.red,
+                width: 100,
+                height: 100,
               ),
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: Colors.orange,
-                  height: 50,
-                ),
+              Container(
+                color: Colors.orange,
+                width: 100,
+                height: 100,
               ),
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: Colors.yellow,
-                  height: 50,
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: Colors.green,
-                  height: 50,
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: Colors.blue,
-                  height: 50,
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: Colors.indigo,
-                  height: 50,
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: Colors.purple,
-                  height: 50,
-                ),
+              Container(
+                color: Colors.yellow,
+                width: 100,
+                height: 100,
               ),
             ],
           ),
