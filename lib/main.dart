@@ -20,26 +20,27 @@ class FirstApp extends StatelessWidget {
              leading: Icon(Icons.menu),
 
            ),
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Container(
-                color: Colors.red,
-                width: 100,
-                height: 100,
-              ),
-              Container(
-                color: Colors.orange,
-                width: 100,
-                height: 100,
-              ),
-              Container(
-                color: Colors.yellow,
-                width: 100,
-                height: 100,
-              ),
-            ],
+          body: Container(
+            height: 100,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                 color: Colors.green,
+                  width: 100,
+                ),
+                Container(
+                  color: Colors.red,
+                  width: 100,
+
+                ),
+                Container(
+                  color: Colors.orange,
+                  width: 100,
+
+                ),
+              ],
+            ),
           ),
            floatingActionButton: FloatingActionButton(
              child: Text("button"),
