@@ -1,11 +1,29 @@
 import 'dart:io';
-
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
 void main() { // main스레드는 runApp 을 실행시키고 종료됩니다.
   runApp(FirstApp());
 print("main 쓰레드 종료");
 // sleep(Duration(seconds: 3));
 }
+void _callAPI() async {
+  final url = Uri.parse('http://10.0.2.2:8080/test');
+
+  Map data = {"name": "name", "id": "12"};
+
+  var body = json.encode(data);
+  final response = await http.post(url,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: body);
+  print('Response status: ${response.statusCode}');
+  print('Response body: ${response.body}');
+}
+
+
 
 class FirstApp extends StatelessWidget {
 
@@ -20,28 +38,14 @@ class FirstApp extends StatelessWidget {
              leading: Icon(Icons.menu),
 
            ),
-          body: Container(
-            height: 100,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                 color: Colors.green,
-                  width: 100,
-                ),
-                Container(
-                  color: Colors.red,
-                  width: 100,
-
-                ),
-                Container(
-                  color: Colors.orange,
-                  width: 100,
-
-                ),
-              ],
+          body: Center(
+            child: ElevatedButton(
+              onPressed: _callAPI,
+              child: const Text('Call API'),
             ),
+
           ),
+
            floatingActionButton: FloatingActionButton(
              child: Text("button"),
              onPressed: (){
